@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.cpp                                  :+:      :+:    :+:   */
+/*   contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:46:33 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/21 16:04:20 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:42:48 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "contact.class.hpp"
+#include "contact.hpp"
 
 Contact::Contact(void)
 {

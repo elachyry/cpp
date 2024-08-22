@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.class.hpp                                  :+:      :+:    :+:   */
+/*   contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:45:02 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/21 22:05:50 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/22 16:47:01 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_CLASS_HPP
 # define CONTACT_CLASS_HPP
 
-#include <iostream>
+# include <iostream>
 
 class Contact
 {
