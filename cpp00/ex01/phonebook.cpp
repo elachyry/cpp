@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.class.cpp                                :+:      :+:    :+:   */
+/*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 20:31:02 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/21 21:59:11 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/23 17:23:40 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cstdlib>
-#include "phonebook.class.hpp"
+#include "phonebook.hpp"
 
 PhoneBook::PhoneBook(void)
 {
