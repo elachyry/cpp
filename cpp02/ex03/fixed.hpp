@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:35:46 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/25 21:54:30 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/25 22:14:57 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,6 @@
 
 class	Fixed
 {
-	private:
-		int					fixedPoint;
-		static const int	fraction = 8;
-
 	public:
 		Fixed( void );
 		Fixed( const int number );
@@ -50,7 +46,11 @@ class	Fixed
 		static Fixed&		max(Fixed& fixed1, Fixed& fixed2);
 		static const Fixed&	min(const Fixed& fixed1, const Fixed& fixed2);
 		static const Fixed&	max(const Fixed& fixed1, const Fixed& fixed2);
-		
+
+	private:
+		int					fixedPoint;
+		static const int	fraction = 8;
+	
 };
 std::ostream&	operator << (std::ostream& output, const Fixed& fixed);
 

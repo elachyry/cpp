@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/25 21:18:19 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/25 22:46:22 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 int	main( void )
 {
-
 	Fixed a;
 	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 	std::cout << a << std::endl;
