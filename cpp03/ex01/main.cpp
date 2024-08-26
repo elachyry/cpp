@@ -6,27 +6,21 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/26 15:03:38 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/25 23:47:35 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.hpp"
+#include "clapTrap.hpp"
 
 int	main( void )
 {
-	//inside
-	Point a(Fixed(0), Fixed(0));
-	Point b(Fixed(10), Fixed(30));
-	Point c(Fixed(20), Fixed(0));
-	Point p(Fixed(10), Fixed(15));
-	std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	ClapTrap clapTrap1("boo");
 
-	//outside
-	// Point a(Fixed(0), Fixed(0));
-	// Point b(Fixed(10), Fixed(30));
-	// Point c(Fixed(20), Fixed(0));
-	// Point p(Fixed(20), Fixed(0));
-	// std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	clapTrap1.attack("foo");
+	clapTrap1.takeDamage(5);
+	clapTrap1.beRepaired(3);
+	clapTrap1.takeDamage(8);
+	clapTrap1.attack("Too");
 
 	return (0);
 }

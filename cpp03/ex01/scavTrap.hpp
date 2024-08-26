@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   scavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/26 14:53:46 by melachyr         ###   ########.fr       */
+/*   Created: 2024/08/25 23:56:11 by melachyr          #+#    #+#             */
+/*   Updated: 2024/08/26 14:57:09 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
+
 #include "clapTrap.hpp"
 
-int	main( void )
+class	ScavTrap : public ClapTrap 
 {
-	ClapTrap clapTrap1("boo");
+	
+};
 
-	clapTrap1.attack("foo");
-	clapTrap1.takeDamage(5);
-	clapTrap1.beRepaired(3);
-	clapTrap1.takeDamage(8);
-	clapTrap1.attack("Too");
-
-	return (0);
-}
+#endif

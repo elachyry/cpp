@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 22:24:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/25 22:53:54 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/26 15:02:31 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
 	Fixed	pbcSurface = getTriangleSurface(point, b, c);
 
 	Fixed	sum = pabSurface + pacSurface + pbcSurface;
-	return (abcSurface == sum);
+	
+	return (abcSurface == sum && !(pabSurface == 0 || pacSurface == 0 || pbcSurface == 0) );
 }
