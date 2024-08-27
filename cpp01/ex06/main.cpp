@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:18:42 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/24 22:19:37 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:26:46 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "harl.hpp"
+# include "Harl.hpp"
 
 levels	getLevel(std::string level)
 {
@@ -45,7 +45,6 @@ int main(int argc, char **argv)
 			case ERROR:
 				std::cout << "[ERROR]" << std::endl;
 				harl.complain("ERROR");
-				std::cout << std::endl;
 				break ;
 			default:
 				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;

@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 22:24:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/26 15:02:31 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:35:30 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.hpp"
+#include "Point.hpp"
 
 Fixed	getTriangleSurface(Point const a, Point const b, Point const c)
 {

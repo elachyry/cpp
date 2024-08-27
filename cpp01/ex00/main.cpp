@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:11:44 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/22 17:39:48 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:19:32 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 
 int main( void )
 {

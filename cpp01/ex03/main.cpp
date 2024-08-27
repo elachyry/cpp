@@ -6,12 +6,12 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:18:42 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/23 17:36:04 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:23:12 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "humana.hpp"
-# include "humanb.hpp"
+# include "HumanA.hpp"
+# include "HumanB.hpp"
 
 int main()
 {

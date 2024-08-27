@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/26 15:03:38 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:35:30 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "point.hpp"
+#include "Point.hpp"
 
 int	main( void )
 {

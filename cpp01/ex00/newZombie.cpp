@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/22 17:13:05 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/22 17:35:00 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:19:21 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "zombie.hpp"
+#include "Zombie.hpp"
 
 Zombie  *newZombie(std::string name)
 {

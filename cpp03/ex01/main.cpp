@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/25 23:47:35 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 15:37:01 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "clapTrap.hpp"
+#include "ClapTrap.hpp"
 
 int	main( void )
 {
