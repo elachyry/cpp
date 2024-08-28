@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:18:42 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:12:44 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 20:12:39 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,27 +62,15 @@ void	replaceS1WithS2(std::ifstream& inFile, std::ofstream& outFile, \
 		s1Position = line.find(s1);
 		if (s1Position != std::string::npos)
 		{	
-			while (j < (int)s1Position)
-			{
-				outFile << line[j];
-				j++;
-				copied++;
-			}
-			for (int k = 0; k < (int)s2.length(); k++)
-			{
-				outFile << s2[k];
-				copied++;
-			}
-			line = line.substr(s1.length() + j);
+			std::string sub = line.substr(0, s1Position);
+			outFile << sub << s2;
+			copied += s1Position + s2.length();
+			line = line.substr(s1.length() + s1Position);
 		}
 		else
 		{
-			while (j < (int)line.length())
-			{
-				outFile << line[j];
-				copied++;
-				j++;
-			}
+			outFile << line;
+			copied += line.length();
 		}
 	}
 	if (!inFile.eof())
@@ -105,15 +93,20 @@ bool	replaceInFile(std::string filename, std::string s1, std::string s2)
 	if (!replaceFile)
 	{
 		std::cerr << "Cannot create the out file!" << s2;
+		inFile.close();
 		return (true);
 	}
 	if (s1.empty() || s2.empty())
 	{
 		copyAllFile(inFile, replaceFile);
+		inFile.close();
+		replaceFile.close();
 		return (false);
 	}
 	while (std::getline(inFile, line))
 		replaceS1WithS2(inFile, replaceFile, s1, s2, line);
+	inFile.close();
+	replaceFile.close();
 	return (false);
 }
 

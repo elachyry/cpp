@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 15:49:19 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:23:23 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/27 17:35:43 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,15 @@ Weapon::Weapon( void ) {}
 
 Weapon::Weapon(std::string type)
 {
-    this->type = type;
+	this->type = type;
 }
 
-const std::string&   Weapon::getType( void )
+const std::string&	Weapon::getType( void )
 {
-    return (this->type);
+	return (this->type);
 }
 
-void    Weapon::setType(std::string type)
+void	Weapon::setType(std::string type)
 {
-    this->type = type;
+	this->type = type;
 }
