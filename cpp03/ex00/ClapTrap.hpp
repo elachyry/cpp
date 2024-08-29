@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/25 22:56:58 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:36:24 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:05:50 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ class	ClapTrap
 		ClapTrap( const ClapTrap& clapTrap);
 		~ClapTrap( void );
 		ClapTrap&	operator = (const ClapTrap& clapTrap);
-		void	attack(const std::string& target);
-		void	takeDamage(unsigned int amount);
-		void	beRepaired(unsigned int amount);
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
 };
 
 #endif
