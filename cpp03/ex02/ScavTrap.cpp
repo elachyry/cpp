@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 15:38:09 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/29 13:54:17 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/29 16:10:49 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name)
 	attackDamage = 20;
 }
 
-ScavTrap::ScavTrap( const ScavTrap& scavTrap )
+ScavTrap::ScavTrap( const ScavTrap& scavTrap ) : ClapTrap(scavTrap)
 {
 	std::cout << "ScavTrap Copy constructor called" << std::endl;
 	*this = scavTrap;
