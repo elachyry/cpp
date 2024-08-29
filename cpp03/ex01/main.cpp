@@ -6,11 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:37:01 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:04:43 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int	main( void )
 {
@@ -22,5 +22,11 @@ int	main( void )
 	clapTrap1.takeDamage(8);
 	clapTrap1.attack("Too");
 
+	ScavTrap scavTrap;
+	scavTrap.takeDamage(20);
+	scavTrap.beRepaired(10);
+	scavTrap.takeDamage(20);
+	scavTrap.attack("Clap");
+	scavTrap.guardGate();
 	return (0);
 }
