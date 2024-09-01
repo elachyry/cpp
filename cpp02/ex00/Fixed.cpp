@@ -6,11 +6,13 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:40:30 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:28:56 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/01 14:18:41 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+const int	Fixed::fraction = 8;
 
 Fixed::Fixed( void )
 {
@@ -20,14 +22,14 @@ Fixed::Fixed( void )
 Fixed::Fixed( const Fixed& fixed )
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->fixedPoint = fixed.getRawBits();
+	*this = fixed;
 }
 
 Fixed& Fixed::operator=(const Fixed& fixed)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &fixed)
-		this->fixedPoint = getRawBits();
+		this->fixedPoint = fixed.getRawBits();
 	return *this;
 }
 

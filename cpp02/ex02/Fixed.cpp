@@ -6,12 +6,14 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:40:30 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:33:26 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/01 13:59:01 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <cmath>
+
+const int	Fixed::fraction = 8;
 
 Fixed::Fixed( void )
 {

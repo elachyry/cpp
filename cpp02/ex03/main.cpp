@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 15:35:30 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/01 15:53:18 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,31 @@
 int	main( void )
 {
 	//inside
-	Point a(Fixed(0), Fixed(0));
-	Point b(Fixed(10), Fixed(30));
-	Point c(Fixed(20), Fixed(0));
-	Point p(Fixed(10), Fixed(15));
-	std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	{
+		Point a(Fixed(0), Fixed(0));
+		Point b(Fixed(4), Fixed(0));
+		Point c(Fixed(2), Fixed(3));
+		Point p(Fixed(2), Fixed(1));
+		std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	}
 
 	//outside
-	// Point a(Fixed(0), Fixed(0));
-	// Point b(Fixed(10), Fixed(30));
-	// Point c(Fixed(20), Fixed(0));
-	// Point p(Fixed(20), Fixed(0));
-	// std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	{
+		Point a(Fixed(0), Fixed(0));
+		Point b(Fixed(4), Fixed(0));
+		Point c(Fixed(2), Fixed(3));
+		Point p(Fixed(5), Fixed(2));
+		std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	}
+
+	//One of the Triangle's Legs
+	{
+		Point a(Fixed(0), Fixed(0));
+		Point b(Fixed(4), Fixed(0));
+		Point c(Fixed(2), Fixed(3));
+		Point p(Fixed(3), Fixed(2));
+		std::cout << (bsp(a, b, c ,p) ? "Inside" : "Outside") << std::endl;
+	}
 
 	return (0);
 }
