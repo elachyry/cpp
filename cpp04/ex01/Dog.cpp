@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:39 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/31 15:53:32 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 23:40:42 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,12 @@ Dog&	Dog::operator = (const Dog& dog)
 	if (this != &dog)
 	{
 		this->type = dog.type;
-		this->brain = dog.brain;
+		if (this->brain)
+			delete this->brain;
+		if (dog.brain)
+			this->brain = new Brain(*dog.brain);
+		else
+			this->brain = NULL;
 	}
 	return (*this);
 }

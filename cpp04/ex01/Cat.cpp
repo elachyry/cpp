@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:23 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/31 15:53:38 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 23:40:48 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,13 @@ Cat&	Cat::operator = (const Cat& cat)
 	if (this != &cat)
 	{
 		this->type = cat.type;
-		this->brain = cat.brain;
+		if (this->brain)
+			delete this->brain;
+		
+		if (cat.brain)
+			this->brain = new Brain(*cat.brain);
+		else
+			this->brain = NULL;
 	}
 	return (*this);
 }

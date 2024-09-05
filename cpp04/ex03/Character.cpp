@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 22:20:52 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/04 16:23:50 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:24:05 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,30 @@ Character::Character(const Character& character)
 
 Character::~Character()
 {
-	for (int i = 0; i < 4; i++)
-		if (slots[i])
-			delete this->slots[i];
 	//std::cout << "Character Destructor called" << std::endl;
-}
-
-Character&	Character::operator = (const Character& character)
-{
-	//std::cout << "Character Copy assignment operator called" << std::endl;
-	if (this != &character)
+	for (int i = 0; i < 4; i++)
 	{
-		
-		this->~Character();
-		this->name = character.name; // deep copy
+		if (slots[i]) 
+		{
+			delete slots[i];
+			slots[i] = NULL;
+		}
+	}
+}
+Character& Character::operator=(const Character& character)
+{
+    // std::cout << "Character Copy assignment operator called" << std::endl;
+    if (this != &character)
+    {
+		for (int i = 0; i < 4; i++)
+		{
+			if (slots[i]) 
+			{
+				delete slots[i];
+				slots[i] = NULL;
+			}
+		}
+		this->name = character.name;
 		for (int i = 0; i < 4; i++)
 		{
 			if (character.slots[i])
@@ -60,10 +70,12 @@ Character&	Character::operator = (const Character& character)
 				floor.removeNode(slots[i]);
 			}
 			else
+			{
 				slots[i] = NULL;
+			}
 		}
 	}
-	return (*this);
+    return (*this);
 }
 
 std::string const &	Character::getName() const
@@ -73,10 +85,8 @@ std::string const &	Character::getName() const
 
 void	Character::equip(AMateria* m)
 {
-	//check if exits it the floor !!!!!!!!
 	if (!floor.checkIfExist(m))
 		return ;
-	// std::cout << "type3 " << m->getType() << std::endl;
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->slots[i] == NULL)
@@ -92,21 +102,13 @@ void	Character::unequip(int idx)
 {
 	if (idx > 0 && idx < 4)
 	{
-		std::cout << "test : " << std::endl;
-		floor.addBack(this->slots[idx]);//return it to the floor
+		floor.addBack(this->slots[idx]);
 		this->slots[idx] = NULL;
 	}
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	// int i = 0;
-	// while (this->slots[i])
-	// {
-	// 	std::cout << "type2 " << this->slots[i]->getType() << std::endl;
-	// 	i++;	
-	// }
-	
 	if (idx >= 0 && idx < 4 && this->slots[idx])
 		this->slots[idx]->use(target);
 }

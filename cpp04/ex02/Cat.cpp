@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:23 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/31 21:50:21 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 17:34:09 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,19 @@ Cat::~Cat( void )
 	delete this->brain;
 }
 
-Cat&	Cat::operator = (const Cat& cat)
+Cat&	Cat::operator=(const Cat& cat)
 {
 	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &cat)
 	{
 		this->type = cat.type;
-		this->brain = cat.brain;
+		if (this->brain)
+			delete this->brain;
+		
+		if (cat.brain)
+			this->brain = new Brain(*cat.brain);
+		else
+			this->brain = NULL;
 	}
 	return (*this);
 }
