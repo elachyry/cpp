@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:39 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 23:40:42 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 23:51:55 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Dog::Dog( void ) : Animal("Dog")
 Dog::Dog(const Dog& dog) : Animal(dog)
 {
 	std::cout << "Dog Copy constructor called" << std::endl;
-	*this = dog;
+	this->type = dog.type;
+	this->brain = new Brain(*dog.brain);
 }
 
 Dog::~Dog( void )

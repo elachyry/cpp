@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:23 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 17:34:09 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 23:52:40 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Cat::Cat( void ) : AAnimal("Cat")
 Cat::Cat(const Cat& cat) : AAnimal(cat)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	*this = cat;
+	this->type = cat.type;
+	this->brain = new Brain(*cat.brain);
 }
 
 Cat::~Cat( void )
@@ -30,7 +31,7 @@ Cat::~Cat( void )
 	delete this->brain;
 }
 
-Cat&	Cat::operator=(const Cat& cat)
+Cat&	Cat::operator = (const Cat& cat)
 {
 	std::cout << "Cat Copy assignment operator called" << std::endl;
 	if (this != &cat)

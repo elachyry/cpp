@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/01 22:20:52 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 17:24:05 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/06 00:09:27 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void	Character::equip(AMateria* m)
 
 void	Character::unequip(int idx)
 {
-	if (idx > 0 && idx < 4)
+	if (idx >= 0 && idx < 4)
 	{
 		floor.addBack(this->slots[idx]);
 		this->slots[idx] = NULL;

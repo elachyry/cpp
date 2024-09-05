@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 16:45:23 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 23:40:48 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/05 23:51:22 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ Cat::Cat( void ) : Animal("Cat")
 Cat::Cat(const Cat& cat) : Animal(cat)
 {
 	std::cout << "Cat Copy constructor called" << std::endl;
-	*this = cat;
+	this->type = cat.type;
+	this->brain = new Brain(*cat.brain);
 }
 
 Cat::~Cat( void )
