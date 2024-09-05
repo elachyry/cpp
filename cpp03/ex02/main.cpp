@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 22:59:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/29 14:53:29 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:07:59 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main( void )
 	FragTrap fragTrap;
 	fragTrap.takeDamage(20);
 	fragTrap.beRepaired(10);
-	fragTrap.takeDamage(20);
+	fragTrap.takeDamage(90);
 	fragTrap.attack("Scav");
 	fragTrap.highFivesGuys();
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:12:36 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 17:35:14 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:53:57 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 HumanB::HumanB(std::string name)
 {
 	this->name = name;
+	this->weapon = NULL;
 }
 
 void	HumanB::setWeapon(Weapon& weapon)

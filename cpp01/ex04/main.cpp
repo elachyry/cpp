@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 17:18:42 by melachyr          #+#    #+#             */
-/*   Updated: 2024/08/27 20:12:39 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:55:30 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ bool	replaceInFile(std::string filename, std::string s1, std::string s2)
 	std::ifstream inFile(filename.c_str());
 	if (!inFile)
 	{
-		std::cerr << "Cannot open the file!";
+		std::cerr << "Cannot open the file " << filename << "!" << std::endl;
 		return (true);
 	}
 	std::ofstream replaceFile(outfile.c_str());
 	if (!replaceFile)
 	{
-		std::cerr << "Cannot create the out file!" << s2;
+		std::cerr << "Cannot create the out file " << outfile << "!" << std::endl;
 		inFile.close();
 		return (true);
 	}
