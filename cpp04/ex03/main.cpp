@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 18:39:45 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/06 00:14:35 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/06 02:32:30 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,12 @@ int main()
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	// tmp->use(*me);
 	me->equip(tmp);
-	me->unequip(0);
 	tmp = src->createMateria("cure");
-	// tmp->use(*me);
 	me->equip(tmp);
 	ICharacter* bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
-	
-
 	delete bob;
 	delete me;
 	delete src;

@@ -1,6 +1,6 @@
 NAME = animal
 CXX = c++
-CXXFLAGS =  -std=c++98 -g3 #-fsanitize=address #-Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3 #-fsanitize=address #
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 

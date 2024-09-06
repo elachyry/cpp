@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 00:24:56 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/06 00:10:44 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/06 02:04:12 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ LinkedList::~LinkedList( void )
 	Node *ntmp;
 	while (head)
 	{
-		std::cout << "data = " << head->data << std::endl;
 		::operator delete(head->data);
 		ntmp = head;
 		head = head->next;
