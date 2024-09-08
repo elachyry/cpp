@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:18:20 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 21:59:58 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:56:43 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,3 @@ Data	*Serializer::deserialize(uintptr_t raw)
 	return (data);
 }
 
-const char *Serializer::CannotOpenFileException::what( void ) const throw()
-{
-	return ("Cannot open the file!");
-}

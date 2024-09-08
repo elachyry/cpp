@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:18:39 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 21:54:53 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 00:56:49 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ class	Serializer
 		Serializer&			operator = ( const Serializer& );
 		static uintptr_t	serialize( Data* );
 		static Data*		deserialize( uintptr_t );
-
-		class	CannotOpenFileException : std::exception
-		{
-			const char	*what( void ) const throw();
-		};
 };
 
 #endif
