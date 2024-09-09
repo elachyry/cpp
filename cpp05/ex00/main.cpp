@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:06:45 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/04 18:40:54 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:20:01 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main( void )
 {
 	try
 	{
-		Bureaucrat	b("dsf", 149);
+		Bureaucrat	b("foo", 151);
 		b.downgrade();
 		b.Upgrade();
 		std::cout << b << std::endl;

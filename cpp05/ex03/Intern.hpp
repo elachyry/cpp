@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/05 16:03:01 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 16:29:08 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:59:56 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	Intern
 		class	FormDoesNotExistException : public std::exception
 		{
 			public:
-				virtual const char	*what( void ) const throw();
+				const char	*what( void ) const throw();
 		};
 };
 

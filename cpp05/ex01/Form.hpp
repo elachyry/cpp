@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:38:44 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/04 22:02:42 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:00:53 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ class Form
 		class	GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char	*what( void ) const throw();
+				const char	*what( void ) const throw();
 		};
 
 		class	GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char	*what( void ) const throw();
+				const char	*what( void ) const throw();
 		};
 };
 

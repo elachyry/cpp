@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:29:49 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 20:08:21 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:32:36 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,12 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : name(name)
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name)
 {
 	*this = bureaucrat;
 }
 
-Bureaucrat::~Bureaucrat( void )
-{
-	
-}
+Bureaucrat::~Bureaucrat( void ) {}
 
 Bureaucrat&	Bureaucrat::operator = (const Bureaucrat& bureaucrat)
 {

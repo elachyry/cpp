@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:29:49 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/04 21:36:57 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:08:27 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : name(name)
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat)
+Bureaucrat::Bureaucrat(const Bureaucrat& bureaucrat) : name(bureaucrat.name)
 {
 	*this = bureaucrat;
 }
@@ -63,12 +63,12 @@ void	Bureaucrat::downgrade( void )
 
 const char	*Bureaucrat::GradeTooHighException::what( void ) const throw()
 {
-	return ("You can't give a grade higher than 1!");
+	return ("Grade too high!");
 }
 
 const char	*Bureaucrat::GradeTooLowException::what( void ) const throw()
 {
-	return ("You can't give a grade lower than 150!");
+	return ("Grade too low!");
 }
 
 std::ostream&	operator << (std::ostream& output, const Bureaucrat& bureaucrat)

@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 18:06:45 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/05 17:05:35 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:11:06 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 int	main( void )
 {
-	AForm* rrf;
-	AForm* ppf;
-	AForm* scf;
-	AForm* nrf;
+	AForm* rrf = NULL;
+	AForm* ppf = NULL;
+	AForm* scf = NULL;
+	AForm* nrf = NULL;
 	try
 	{
 		Bureaucrat	b("Mohammed", 2);
@@ -45,14 +45,15 @@ int	main( void )
 		delete rrf;
 		delete ppf;
 		delete scf;
-		delete nrf;
 	}
 	catch(std::exception& e)
 	{
-		delete rrf;
-		delete ppf;
-		delete scf;
-		delete nrf;
+		if (rrf)
+			delete rrf;
+		if (ppf)
+			delete ppf;
+		if (scf)
+			delete scf;
 		std::cerr << e.what() << std::endl;
 	}
 	return (0);

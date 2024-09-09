@@ -6,13 +6,13 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 19:50:58 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/04 22:02:26 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:30:59 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form( void ) : gradeToSign(0), gradeToExecute(0)
+Form::Form( void ) : gradeToSign(1), gradeToExecute(1)
 {
 	this->isSigned = false;
 }
