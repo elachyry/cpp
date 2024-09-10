@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 14:59:20 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 17:01:01 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/10 01:19:39 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Bureaucrat
 		unsigned int		grade;
 
 	public:
+		Bureaucrat( void );
 		Bureaucrat( std::string name, unsigned int grade );
 		Bureaucrat( const Bureaucrat& bureaucrat );
 		~Bureaucrat( void );

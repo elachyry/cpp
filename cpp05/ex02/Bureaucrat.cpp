@@ -6,11 +6,13 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/04 17:29:49 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 17:32:22 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/10 01:20:45 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+Bureaucrat::Bureaucrat( void ) : name(""), grade(150) {}
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : name(name)
 {
