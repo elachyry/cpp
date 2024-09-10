@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:45:48 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 22:01:11 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/09 02:52:27 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int main()
 	std::cout << "Gender: " << d2->getGender() << std::endl;
 	std::cout << "Bank Balance: " << d2->getAccountBalance() << std::endl;
 
+	delete d1;
     return 0;
 }
