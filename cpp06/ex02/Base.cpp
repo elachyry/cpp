@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 22:25:17 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 23:48:15 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:19:27 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,12 @@
 # include "B.hpp"
 # include "C.hpp"
 
-//check for c cast!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 Base::~Base( void ) {}
 
 Base	*generate( void )
 {
 	std::srand(std::time(0));
 	int result = std::rand() % 3;
-	std::cout << "result " << result << std::endl;
 	Base *base = NULL;
 	switch (result)
 	{
@@ -59,7 +56,6 @@ void	identify(Base& base)
 	try
 	{
 		a = dynamic_cast<A&>(base);
-		(void)a;
 		std::cout << "Pointer identify is A." << std::endl;
 		return ;
 	}
@@ -68,7 +64,6 @@ void	identify(Base& base)
 	try
 	{
 		b = dynamic_cast<B&>(base);
-		(void)b;
 		std::cout << "Pointer identify is B." << std::endl;
 		return ;
 	}

@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:18:20 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 00:56:43 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:13:08 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Serializer::~Serializer( void ) {}
 
 Serializer&	Serializer::operator = (const Serializer& serializer)
 {
-	(void) serializer;
+	if (this != &serializer) {}
 	return (*this);
 }
 

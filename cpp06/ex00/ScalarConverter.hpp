@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:29:52 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 01:35:44 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:31:21 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,15 @@ enum	DataType
 
 class ScalarConverter
 {
-	public:
+	private:
 		static char		charVal;
 		static int		intVal;
 		static float	floatVal;
 		static double	doubleVal;
 		static bool		isPrintable;
 		static bool		check;
+
+	public:
 		ScalarConverter( void );
 		ScalarConverter( const ScalarConverter& );
 		~ScalarConverter( void );

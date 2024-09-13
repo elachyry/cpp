@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:29:41 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/08 15:42:55 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:30:12 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,20 @@ ScalarConverter::~ScalarConverter( void ) {}
 
 ScalarConverter&	ScalarConverter::operator = (const ScalarConverter& scalarConverter)
 {
-	if (this != &scalarConverter)
-	{
-		
-	}
+	if (this != &scalarConverter) {}
 	return (*this);
+}
+
+int isascii(int ch)
+{
+	return (ch >= 0 && ch < 128);
 }
 
 DataType	ScalarConverter::detectInputType(const char* str)
 {
 	std::string input = str;
 
-	if (input.size() == 1 && !std::isdigit(input.at(0)))//-255f
+	if (input.size() == 1 && !std::isdigit(input.at(0)))
 		return (TCHAR);
 	if (input == "nan" || input == "nanf")
 		return (NAN);
@@ -54,14 +56,13 @@ DataType	ScalarConverter::detectInputType(const char* str)
 			if (input[i] == '+' || input[i] == '-')
 				continue ;
 		}
-		if ((input[i] == '.' && i == input.size() - 1) || (i == input.size() - 2 && input[i] == '.'  && input[input.size() - 1] == 'f'))
+		if ((input[i] == '.' && i == 0) || (input[i] == '.' && i == input.size() - 1) || (i == input.size() - 2 && input[i] == '.'  && input[input.size() - 1] == 'f'))
 			return (NONNUMERIC);
 		if (input[i] == '.')
 			count++;
 		if ((!std::isdigit(input[i]) && input[i] == '.' && count > 1)
-			|| (std::isprint(input[i]) && input[i] != '.' && !std::isdigit(input[i])))
+			|| (isascii(input[i]) && input[i] != '.' && !std::isdigit(input[i])))
 		{
-			// std::cout << "test" << std::endl;
 			if (i == input.size() - 1 && input[i] == 'f' && count)
 				continue;
 			return (NONNUMERIC);
@@ -80,7 +81,6 @@ DataType	ScalarConverter::detectInputType(const char* str)
 				j++;
 				for (size_t k = j; k < input.size(); k++)
 				{
-					// std::cout << "input = " << input[k] << std::endl;
 					if (input[k] == '0')
 						count++;
 					else if (input[k] == 'f')
@@ -92,8 +92,6 @@ DataType	ScalarConverter::detectInputType(const char* str)
 				}
 			}
 		}
-		// std::cout << "count = " << count << std::endl;
-		// std::cout << "flag = " << flag << std::endl;
 		if (count <= 3 && !flag)
 			check = false;
 		if (input.find("f") != std::string::npos)
@@ -105,8 +103,6 @@ DataType	ScalarConverter::detectInputType(const char* str)
 
 void	ScalarConverter::printValues( DataType error )
 {
-	// std::cout << "check :" << check << std::endl;
-
 	switch (error)
 	{
 		case INF:
@@ -121,7 +117,6 @@ void	ScalarConverter::printValues( DataType error )
 			break;
 		default:
 		{
-			// std::cout << "char " << intVal << std::endl;
 			if (intVal < -128 || intVal > 127 || error == OVERFLOW)
 				std::cout << "char: Overflow" << std::endl;
 			else if (intVal < 32 || intVal > 126)
@@ -149,7 +144,6 @@ void	ScalarConverter::printValues( DataType error )
 					std::cout << "float: " << floatVal << "f" << std::endl;
 					std::cout << "double: " << doubleVal << std::endl;
 				}
-				
 			}
 			break;
 		}
@@ -197,7 +191,6 @@ void	ScalarConverter::handlNonPrintable(int n)
 
 void	ScalarConverter::handlNonNumeric(double n)
 {
-	// std::cout << "test" << std::endl;
 	doubleVal = n;
 	floatVal = static_cast<float> (doubleVal);
 }
@@ -205,7 +198,6 @@ void	ScalarConverter::handlNonNumeric(double n)
 void	ScalarConverter::convert(const char* str)
 {
 	DataType type = detectInputType(str);
-	// std::cout << type << std::endl;
 	switch(type)
 	{
 		case TCHAR:
@@ -223,7 +215,6 @@ void	ScalarConverter::convert(const char* str)
 				break;
 			}
 		case TFLOAT:
-			// std::cout << std::atof(str) << std::endl;
 			castFromFloat(std::atof(str));
 			break;
 		case TDOUBLE:
@@ -235,31 +226,3 @@ void	ScalarConverter::convert(const char* str)
 	}
 	printValues(type);
 }
-
-// void	ScalarConverter::convert(const char* str)
-// {
-// 	std::cout << std::fixed << std::setprecision(2);
-
-// 	bool	error = false;
-
-// 	intVal = std::atoi(str);
-// 	if (intVal == 0 && str[0] != '0')
-// 		error = true;
-// 	charVal = static_cast<char>(intVal);
-// 	doubleVal = std::atof(str);
-// 	floatVal = std::atof(str);
-	
-// 	if (error)
-// 		std::cout << "char: impossible" << std::endl;
-// 	else if (intVal >= 32 && intVal <= 127)
-// 		std::cout << "char: '"<< charVal << "'" << std::endl;
-// 	else
-// 		std::cout << "char: Non displayable" << std::endl;
-	
-// 	if (error)
-// 		std::cout << "int: impossible" << std::endl;
-// 	else
-// 		std::cout << "int: "<< intVal << std::endl;
-// 	std::cout << "float: " << floatVal << "f" << std::endl;
-// 	std::cout << "double: " << doubleVal << std::endl;
-// }

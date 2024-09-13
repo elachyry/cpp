@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:45:48 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 02:52:27 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/11 21:35:33 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-	Data *d1 = new Data("Mohammed", 23, 'M', 20000.25);
+	Data *d1 = new Data("Mohammed", 20, 'F', 20000.25);
 
 	std::cout << "***************Before Serialization***************" << std::endl;
 	std::cout << "Name: " << d1->getName() << std::endl;
