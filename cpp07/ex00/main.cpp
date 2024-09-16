@@ -6,33 +6,11 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/10 19:51:07 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:21:14 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Operations.hpp"
-
-template<typename T>
-void	swap(T& a, T& b)
-{
-	T	c;
-
-	c = a;
-	a = b;
-	b = c;
-}
-
-template<typename T>
-T const &	min( T const & a, T const & b)
-{
-	return (a < b ? a : b);
-}
-
-template<typename T>
-T const &	max( T const & a, T const & b)
-{
-	return (a >= b ? a : b);
-}
+#include "whatever.hpp"
 
 int	main( void )
 {

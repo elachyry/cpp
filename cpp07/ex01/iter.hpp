@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 01:51:03 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 02:11:45 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:28:23 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,16 @@
 
 template<typename T, typename F>
 void	iter( T *, int const &, F const & );
+
+template<typename T, typename F>
+void	iter(T *tab, int const & size, F const & func)
+{
+	if (!tab || !func)
+		return ;
+	for (int i = 0; i < size; i++)
+	{
+		func(tab[i]);
+	}
+}
 
 #endif
