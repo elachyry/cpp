@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:18:20 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/13 18:13:08 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/14 00:30:58 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ Serializer&	Serializer::operator = (const Serializer& serializer)
 
 uintptr_t	Serializer::serialize(Data* ptr)
 {
+	if (!ptr)
+		return (0);
 	uintptr_t dataToWrite = reinterpret_cast<uintptr_t>(ptr);
 	std::cout << "Object serialized successfully." << std::endl;
 	return (dataToWrite);
@@ -36,6 +38,8 @@ uintptr_t	Serializer::serialize(Data* ptr)
 
 Data	*Serializer::deserialize(uintptr_t raw)
 {
+	if (!raw)
+		return (NULL);
 	Data *data = reinterpret_cast<Data *>(raw);
 	std::cout << "Object desserialized successfully." << std::endl;
 	return (data);

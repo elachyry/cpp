@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 20:18:39 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/09 00:56:49 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:43:52 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@
 class	Serializer
 {
 	private:
-		
-	public:
 		Serializer( void );
 		Serializer( const Serializer& );
+		
+	public:
 		~Serializer( void );
 		Serializer&			operator = ( const Serializer& );
 		static uintptr_t	serialize( Data* );

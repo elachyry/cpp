@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:29:52 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/13 18:31:21 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/13 18:42:00 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ class ScalarConverter
 		static double	doubleVal;
 		static bool		isPrintable;
 		static bool		check;
-
-	public:
 		ScalarConverter( void );
 		ScalarConverter( const ScalarConverter& );
+
+	public:
 		~ScalarConverter( void );
 		ScalarConverter&	operator = ( const ScalarConverter& );
 		static void			convert( const char* );

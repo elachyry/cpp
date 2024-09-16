@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/08 15:45:48 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/11 21:35:33 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/14 00:32:44 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int main()
     Data *d2 = Serializer::deserialize(result);
 	
 	std::cout << "***************After Serialization***************" << std::endl;
+	if (!d2)
+		return (0);
 	std::cout << "Name: " << d2->getName() << std::endl;
 	std::cout << "Age: " << d2->getAge() << std::endl;
 	std::cout << "Gender: " << d2->getGender() << std::endl;
 	std::cout << "Bank Balance: " << d2->getAccountBalance() << std::endl;
 
 	delete d1;
-    return 0;
+    return (0);
 }
