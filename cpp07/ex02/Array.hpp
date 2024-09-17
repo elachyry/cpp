@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:25:49 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/10 18:42:53 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:02:46 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ class	Array
 		~Array( void );
 		Array<T>&		operator = ( const Array<T>& );
 		T&				operator [] ( unsigned int );
-		unsigned int	size( void );
+		T const &		operator [] ( unsigned int ) const;
+		unsigned int	size( void ) const;
 	
 };
 

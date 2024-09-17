@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:25:44 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/16 16:45:42 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/16 18:02:38 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,15 @@ T&	Array<T>::operator [] (unsigned int index)
 }
 
 template<typename T>
-unsigned int	Array<T>::size( void )
+T const &	Array<T>::operator [] (unsigned int index) const
+{
+	if (index >= n)
+		throw std::out_of_range("Exception: Index out of range");
+	return (data[index]);
+}
+
+template<typename T>
+unsigned int	Array<T>::size( void ) const
 {
 	return (this->n);
 }
