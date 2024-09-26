@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/14 22:30:32 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/26 15:03:55 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,5 @@ int	main( void )
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
 	return (0);
 }

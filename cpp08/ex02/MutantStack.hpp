@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 16:28:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/15 22:22:12 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/20 19:50:28 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ class MutantStack : public std::stack<T>
 				{
 					if (this != &other)
 					{
-						delete this->ptr;
 						this->ptr = other.ptr;
 					}
 					return (*this);

@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 16:06:39 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/14 22:25:55 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:59:29 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ Span::~Span( void ) {}
 Span&	Span::operator = ( const Span& span )
 {
 	if (this != &span)
+	{
 		this->N = span.N;
+		this->data = span.data;
+	}
 	return (*this);
 }
 
@@ -40,7 +43,7 @@ void	Span::addNumber(int n)
 int	Span::shortestSpan( void )
 {
 	if (data.size() < 2)
-		throw std::logic_error("Not enough numbers!");
+		throw std::logic_error("Exception: Not enough numbers!");
 		
 	std::sort(data.begin(),data.end());
 	int min = data[1] - data[0];
@@ -56,7 +59,7 @@ int	Span::shortestSpan( void )
 int	Span::longestSpan( void )
 {
 	if (data.size() < 2)
-		throw std::logic_error("Not enough numbers!");
+		throw std::logic_error("Exception: Not enough numbers!");
 		
 	int	max = *std::max_element(data.begin(), data.end());
 	int	min = *std::min_element(data.begin(), data.end());

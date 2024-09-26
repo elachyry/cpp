@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/14 16:00:38 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:36:54 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,22 +32,6 @@ int	main( void )
 		std::cerr << e.what() << std::endl;
 	}
 	
-	std::cout << "Lsit" <<std::endl;
-	std::list<int> l;
-	
-	for(int i = 0; i < 10; i++)
-		l.push_back(i * 2);
-	
-	try
-	{
-		std::list<int>::const_iterator result = easyfind(l, 20);
-		std::cout << *result << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
 	std::cout << "deque" <<std::endl;
 	std::deque<int> d;
 

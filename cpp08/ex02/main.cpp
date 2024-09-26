@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/15 22:09:05 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/20 20:07:23 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,10 @@ int	main( void )
 	myStack.push(8);
 	myStack.push(9);
 
-	try
-	{
-		// std::cout << myStack.top() << std::endl;
-		// myStack.pop();
-		// std::cout << myStack.top() << std::endl;
-		// std::cout << "size " << myStack.size() << std::endl;
-		// std::cout << "dsfsd" << std::endl;
-		// myStack.pop();
-		// std::cout << myStack.top() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-
-	MutantStack<double>::iterator it = myStack.begin();
-	MutantStack<double>::iterator ite = myStack.end();
+	MutantStack<double> myStack2(myStack);
+	
+	MutantStack<double>::iterator it = myStack2.begin();
+	MutantStack<double>::iterator ite = myStack2.end();
 	++it;
 	--it;
 	while (it != ite)

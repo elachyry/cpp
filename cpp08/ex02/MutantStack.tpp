@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 17:03:23 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/15 21:14:04 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/19 18:19:07 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ MutantStack<T>&	MutantStack<T>::operator = (const MutantStack<T>& mutantStack)
 {
 	if (this != &mutantStack)
 	{
-		
+		std::stack<T>::operator=(mutantStack);
 	}
 	return (*this);
 }
