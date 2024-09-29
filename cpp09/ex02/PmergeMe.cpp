@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:32:46 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/20 00:31:44 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/29 18:43:41 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,125 +29,131 @@ PmergeMe&	PmergeMe::operator = (const PmergeMe& pmergeMe)
 	return (*this);
 }
 
-void	mergeVector(Vector& vector, Vector& leftVect, Vector& rightVect)
+void	printVector2(const Vector& vector)
 {
-	int	leftSize = vector.size() / 2;
-	int	rightSize = vector.size() - leftSize;
-
-	int	i = 0;
-	int	left = 0;
-	int	right = 0;
-
-	while (left < leftSize && right < rightSize)
+	for(size_t i = 0; i < vector.size(); i++)
 	{
-		if (leftVect[left] < rightVect[right])
-		{
-			vector[i] = leftVect[left];
-			left++;
-			i++;
-		}
-		else
-		{
-			vector[i] = rightVect[right];
-			right++;
-			i++;
-		}
-	}
-	while (left < leftSize)
-	{
-		vector[i] = leftVect[left];
-		left++;
-		i++;
-	}
-	while (right < leftSize)
-	{
-		vector[i] = rightVect[right];
-		right++;
-		i++;
-	}
-}
-
-void	PmergeMe::mergeSortVector(Vector& vector)
-{
-	int	length = vector.size();
-	if (length < 2)
-		return ;
-
-	int	middle = length / 2;
-	Vector leftVector(middle);
-	Vector rightVector(length - middle);
-
-	int i = 0, j = 0;
-	while (i < length)
-	{
-		if (i < middle)
-			leftVector[i] = vector[i];
-		else
-		{
-			rightVector[j] = vector[i];
-			j++;
-		}
-		i++;
-	}
-	mergeSortVector(leftVector);
-	mergeSortVector(rightVector);
-	mergeVector(vector, leftVector, rightVector);
-}
-
-void	printList2(List& list)
-{
-	Iterator start = list.begin();
-	Iterator end = list.end();
-
-	for (Iterator it = start; it != end; it++)
-	{
-		std::cout << *it << " ";
+		std::cout << vector[i] << " ";
 	}
 	std::cout << std::endl;
 }
 
-List	mergeList(List& leftList, List& rightList)
+void	PmergeMe::fordJohnsonSortVector(Vector& arr)
 {
-	List result;
+	int n = arr.size();
+	if (n <= 1) return;
 
-	Iterator left = leftList.begin();
-	Iterator right = rightList.begin();
+	std::sort(arr.begin(), arr.begin() + std::min(3, n));
 
-	while (left != leftList.end() && right != rightList.end())
+	Vector sortedArr(arr.begin(), arr.begin() + 3);
+
+	for (int i = 3; i < n; i += 2)
 	{
-		if (*left < *right)
-		{
-			result.push_back(*left);
-			left++;
-		}
-		else
-		{
-			result.push_back(*right);
-			right++;
-		}
-	}
-	result.insert(result.end(), left, leftList.end());
-	result.insert(result.end(), right, rightList.end());
-	return (result);
+		int a = arr[i];
+		//std::cout << "a = " << a << std::endl;
+		int b = (i + 1 < n) ? arr[i + 1] : INT_MAX;
+		//std::cout << "b = " << b << std::endl;
 
+		if (a > b) std::swap(a, b);
+
+		binaryInsertVector(sortedArr, sortedArr.size(), a);
+
+		if (b != INT_MAX)
+			binaryInsertVector(sortedArr, sortedArr.size(), b);
+	}
+	std::copy(sortedArr.begin(), sortedArr.end(), arr.begin());
 }
 
-List	PmergeMe::mergeSortList(List list)
+void	PmergeMe::binaryInsertVector(Vector& arr, int sortedEnd, int key)
 {
-	int	length = list.size();
-	if (length < 2)
-		return (list);
+	int left = 0, right = sortedEnd - 1;
+	while (left <= right)
+	{
+		int mid = left + (right - left) / 2;
+		//std::cout << "left = " << left << std::endl;
+		//std::cout << "right = " << right << std::endl;
+		//std::cout << "mid = " << mid << std::endl;
+		if (arr[mid] == key)
+		{
+			arr.insert(arr.begin() + mid + 1, key);
+			return;
+		}
+		if (arr[mid] < key)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	arr.insert(arr.begin() + left, key);
+}
 
-	List leftList;
-	List rightList;
-	Iterator middle = list.begin();
-	std::advance(middle, length / 2);
+void	increment(Iterator& it, int steps)
+{
+	for (int i = 0; i < steps; i++)
+		it++;
+}
 
-	leftList.splice(leftList.begin(), list, list.begin(), middle);
-	rightList.splice(rightList.begin(), list, middle, list.end());
+void	PmergeMe::fordJohnsonSortList(List& list)
+{
+	int n = list.size();
+	if (n <= 1) return;
 
-	List left = mergeSortList(leftList);
-	List right = mergeSortList(rightList);
-	List result = mergeList(left, right);
-	return (result);
+	Iterator it = list.begin();
+	increment(it, std::min(3, n));
+	//std::sort(list.begin(), it);
+
+	List sortedArr(list.begin(), it);
+	sortedArr.sort();
+	//printList2(sortedArr);
+	for (int i = 3; i < n; i += 2)
+	{
+		it = list.begin();
+		increment(it, i);
+		int a = *it;
+		//std::cout << "a = " << a << std::endl;
+		int b = INT_MAX;
+		if (i + 1 < n)
+		{
+			it = list.begin();
+			increment(it, i + 1);
+			b = *it;
+		}
+		//std::cout << "b = " << b << std::endl;
+		if (a > b) std::swap(a, b);
+
+		binaryInsertList(sortedArr, sortedArr.size(), a);
+
+		if (b != INT_MAX)
+			binaryInsertList(sortedArr, sortedArr.size(), b);
+	}
+	//printList2(list);
+	//printList2(sortedArr);
+	std::copy(sortedArr.begin(), sortedArr.end(), list.begin());
+}
+
+void	PmergeMe::binaryInsertList(List& list, int sortedEnd, int key)
+{
+	int left = 0, right = sortedEnd - 1;
+	while (left <= right)
+	{
+		Iterator midIt = list.begin();
+		int mid = left + (right - left) / 2;
+		//std::cout << "left = " << left << std::endl;
+		//std::cout << "right = " << right << std::endl;
+		//std::cout << "mid = " << mid << std::endl;
+		increment(midIt, mid);
+		if (*midIt == key)
+		{
+			Iterator it = list.begin();
+			increment(it, mid + 1);
+			list.insert(it, key);
+			return;
+		}
+		if (*midIt < key)
+			left = mid + 1;
+		else
+			right = mid - 1;
+	}
+	Iterator it = list.begin();
+	increment(it, left);
+	list.insert(it, key);
 }
