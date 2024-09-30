@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:32:46 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/29 18:43:41 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/30 22:23:00 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,137 +23,261 @@ PmergeMe::~PmergeMe( void ) {}
 
 PmergeMe&	PmergeMe::operator = (const PmergeMe& pmergeMe)
 {
-	if (this != &pmergeMe)
-	{
-	}
+	if (this != &pmergeMe) {}
 	return (*this);
 }
 
-void	printVector2(const Vector& vector)
+Vector generateJacobsthalSequence(int n)
 {
-	for(size_t i = 0; i < vector.size(); i++)
+	Vector jacobsthal;
+	Vector jacobsthalFinal;
+
+	jacobsthal.push_back(0);
+	if (n > 1) jacobsthal.push_back(1);
+	for (int i = 2; jacobsthal.size() > 1 && jacobsthal.back() < n; ++i)
 	{
-		std::cout << vector[i] << " ";
+		jacobsthal.push_back(jacobsthal[i - 1] + 2 * jacobsthal[i - 2]);
 	}
-	std::cout << std::endl;
+	for (size_t i = 1; i < jacobsthal.size(); i++)
+	{
+		for (int j = jacobsthal[i]; j > jacobsthal[i - 1] ; j--)
+			jacobsthalFinal.push_back(j - 1);
+	}
+	return (jacobsthalFinal);
 }
 
-void	PmergeMe::fordJohnsonSortVector(Vector& arr)
+void	mergeVector(PairVector& vector, PairVector& leftVect, PairVector& rightVect)
 {
-	int n = arr.size();
-	if (n <= 1) return;
+	int	leftSize = vector.size() / 2;
+	int	rightSize = vector.size() - leftSize;
 
-	std::sort(arr.begin(), arr.begin() + std::min(3, n));
+	int	i = 0;
+	int	left = 0;
+	int	right = 0;
 
-	Vector sortedArr(arr.begin(), arr.begin() + 3);
-
-	for (int i = 3; i < n; i += 2)
+	while (left < leftSize && right < rightSize)
 	{
-		int a = arr[i];
-		//std::cout << "a = " << a << std::endl;
-		int b = (i + 1 < n) ? arr[i + 1] : INT_MAX;
-		//std::cout << "b = " << b << std::endl;
-
-		if (a > b) std::swap(a, b);
-
-		binaryInsertVector(sortedArr, sortedArr.size(), a);
-
-		if (b != INT_MAX)
-			binaryInsertVector(sortedArr, sortedArr.size(), b);
+		if (leftVect[left].first < rightVect[right].first)
+		{
+			vector[i] = leftVect[left];
+			left++;
+			i++;
+		}
+		else
+		{
+			vector[i] = rightVect[right];
+			right++;
+			i++;
+		}
 	}
-	std::copy(sortedArr.begin(), sortedArr.end(), arr.begin());
+	while (left < leftSize)
+	{
+		vector[i] = leftVect[left];
+		left++;
+		i++;
+	}
+	while (right < rightSize)
+	{
+		vector[i] = rightVect[right];
+		right++;
+		i++;
+	}
 }
 
-void	PmergeMe::binaryInsertVector(Vector& arr, int sortedEnd, int key)
+void	mergeSortVector(PairVector& vector)
+{
+	int	length = vector.size();
+	if (length < 2)
+		return ;
+
+	int	middle = length / 2;
+	PairVector leftVector(middle);
+	PairVector rightVector(length - middle);
+
+	int i = 0, j = 0;
+	while (i < length)
+	{
+		if (i < middle)
+			leftVector[i] = vector[i];
+		else
+		{
+			rightVector[j] = vector[i];
+			j++;
+		}
+		i++;
+	}
+	mergeSortVector(leftVector);
+	mergeSortVector(rightVector);
+	mergeVector(vector, leftVector, rightVector);
+}
+
+void	PmergeMe::fordJohnsonSortVector(Vector& vector)
+{
+	PairVector	pairVect;
+	Vector		largest;
+	Vector		lowest;
+	int			size = vector.size();
+	
+	for (int i = 0; i < size; i += 2)
+	{
+		int	a = vector[i];
+		int	b = (i + 1 < size) ? vector[i + 1] : -1;
+		if (a < b) std::swap(a, b);
+		pairVect.push_back(std::pair<int, int>(a, b));
+	}
+	mergeSortVector(pairVect);
+	for (size_t i = 0; i < pairVect.size(); i++)
+	{
+		largest.push_back(pairVect[i].first);
+		lowest.push_back(pairVect[i].second);
+	}
+	Vector extededJacobSequ = generateJacobsthalSequence(lowest.size());
+	if (lowest[0] != -1)
+		largest.insert(largest.begin(), lowest[0]);
+	for (size_t i = 1; i < extededJacobSequ.size(); i++)
+	{
+		size_t	currentIndex = extededJacobSequ[i];
+		if (currentIndex >= lowest.size())
+			continue ;
+		if (lowest[currentIndex] != -1)
+			binaryInsertVector(largest, largest.size(), lowest[currentIndex]);
+	}
+	std::copy(largest.begin(), largest.end(), vector.begin());
+}
+
+void	PmergeMe::binaryInsertVector(Vector& vector, int sortedEnd, int key)
 {
 	int left = 0, right = sortedEnd - 1;
 	while (left <= right)
 	{
 		int mid = left + (right - left) / 2;
-		//std::cout << "left = " << left << std::endl;
-		//std::cout << "right = " << right << std::endl;
-		//std::cout << "mid = " << mid << std::endl;
-		if (arr[mid] == key)
+		if (vector[mid] == key)
 		{
-			arr.insert(arr.begin() + mid + 1, key);
+			vector.insert(vector.begin() + mid + 1, key);
 			return;
 		}
-		if (arr[mid] < key)
+		if (vector[mid] < key)
 			left = mid + 1;
 		else
 			right = mid - 1;
 	}
-	arr.insert(arr.begin() + left, key);
+	vector.insert(vector.begin() + left, key);
 }
 
-void	increment(Iterator& it, int steps)
+void	mergeDeque(PairDeque& deque, PairDeque& leftVect, PairDeque& rightVect)
 {
-	for (int i = 0; i < steps; i++)
-		it++;
-}
+	int	leftSize = deque.size() / 2;
+	int	rightSize = deque.size() - leftSize;
 
-void	PmergeMe::fordJohnsonSortList(List& list)
-{
-	int n = list.size();
-	if (n <= 1) return;
+	int	i = 0;
+	int	left = 0;
+	int	right = 0;
 
-	Iterator it = list.begin();
-	increment(it, std::min(3, n));
-	//std::sort(list.begin(), it);
-
-	List sortedArr(list.begin(), it);
-	sortedArr.sort();
-	//printList2(sortedArr);
-	for (int i = 3; i < n; i += 2)
+	while (left < leftSize && right < rightSize)
 	{
-		it = list.begin();
-		increment(it, i);
-		int a = *it;
-		//std::cout << "a = " << a << std::endl;
-		int b = INT_MAX;
-		if (i + 1 < n)
+		if (leftVect[left].first < rightVect[right].first)
 		{
-			it = list.begin();
-			increment(it, i + 1);
-			b = *it;
+			deque[i] = leftVect[left];
+			left++;
+			i++;
 		}
-		//std::cout << "b = " << b << std::endl;
-		if (a > b) std::swap(a, b);
-
-		binaryInsertList(sortedArr, sortedArr.size(), a);
-
-		if (b != INT_MAX)
-			binaryInsertList(sortedArr, sortedArr.size(), b);
+		else
+		{
+			deque[i] = rightVect[right];
+			right++;
+			i++;
+		}
 	}
-	//printList2(list);
-	//printList2(sortedArr);
-	std::copy(sortedArr.begin(), sortedArr.end(), list.begin());
+	while (left < leftSize)
+	{
+		deque[i] = leftVect[left];
+		left++;
+		i++;
+	}
+	while (right < rightSize)
+	{
+		deque[i] = rightVect[right];
+		right++;
+		i++;
+	}
 }
 
-void	PmergeMe::binaryInsertList(List& list, int sortedEnd, int key)
+void	mergeSortDeque(PairDeque& deque)
+{
+	int	length = deque.size();
+	if (length < 2)
+		return ;
+
+	int	middle = length / 2;
+	PairDeque leftDeque(middle);
+	PairDeque rightDeque(length - middle);
+
+	int i = 0, j = 0;
+	while (i < length)
+	{
+		if (i < middle)
+			leftDeque[i] = deque[i];
+		else
+		{
+			rightDeque[j] = deque[i];
+			j++;
+		}
+		i++;
+	}
+	mergeSortDeque(leftDeque);
+	mergeSortDeque(rightDeque);
+	mergeDeque(deque, leftDeque, rightDeque);
+}
+
+void	PmergeMe::fordJohnsonSortDeque(Deque& deque)
+{
+	PairDeque	pairDeq;
+	Deque		largest;
+	Deque		lowest;
+	int			size = deque.size();
+	
+	for (int i = 0; i < size; i += 2)
+	{
+		int	a = deque[i];
+		int	b = (i + 1 < size) ? deque[i + 1] : -1;
+		if (a < b) std::swap(a, b);
+		pairDeq.push_back(std::pair<int, int>(a, b));
+	}
+	mergeSortDeque(pairDeq);
+	for (size_t i = 0; i < pairDeq.size(); i++)
+	{
+		largest.push_back(pairDeq[i].first);
+		lowest.push_back(pairDeq[i].second);
+	}
+	Vector extededJacobSequ = generateJacobsthalSequence(lowest.size());
+	if (lowest[0] != -1)
+		largest.insert(largest.begin(), lowest[0]);
+	for (size_t i = 1; i < extededJacobSequ.size(); i++)
+	{
+		size_t	currentIndex = extededJacobSequ[i];
+		if (currentIndex >= lowest.size())
+			continue ;
+		if (lowest[currentIndex] != -1)
+			binaryInsertDeque(largest, largest.size(), lowest[currentIndex]);
+	}
+	std::copy(largest.begin(), largest.end(), deque.begin());
+}
+
+void	PmergeMe::binaryInsertDeque(Deque& deque, int sortedEnd, int key)
 {
 	int left = 0, right = sortedEnd - 1;
 	while (left <= right)
 	{
-		Iterator midIt = list.begin();
 		int mid = left + (right - left) / 2;
-		//std::cout << "left = " << left << std::endl;
-		//std::cout << "right = " << right << std::endl;
-		//std::cout << "mid = " << mid << std::endl;
-		increment(midIt, mid);
-		if (*midIt == key)
+		if (deque[mid] == key)
 		{
-			Iterator it = list.begin();
-			increment(it, mid + 1);
-			list.insert(it, key);
+			deque.insert(deque.begin() + mid + 1, key);
 			return;
 		}
-		if (*midIt < key)
+		if (deque[mid] < key)
 			left = mid + 1;
 		else
 			right = mid - 1;
 	}
-	Iterator it = list.begin();
-	increment(it, left);
-	list.insert(it, key);
+	deque.insert(deque.begin() + left, key);
 }
