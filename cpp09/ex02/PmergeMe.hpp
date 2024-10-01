@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 21:33:01 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/30 22:23:26 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/30 22:23:46 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <cstdlib>
 # include <vector>
 # include <deque>
-# include <list>
 # include <utility>
 # include <bits/stdc++.h> 
 # include <iomanip>

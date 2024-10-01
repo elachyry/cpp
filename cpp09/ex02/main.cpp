@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/30 22:22:35 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/30 22:40:29 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ int	main(int argc, char **argv)
 	start = clock();
 	p.fordJohnsonSortVector(vect);
 	end = clock();
-	double time_taken = double(end - start) / double(CLOCKS_PER_SEC);
+	double time_taken = double(end - start) / static_cast<double>(CLOCKS_PER_SEC);
 	std::cout << std::setw(10) << std::left << "after: ";
 	printVector(vect);
 	std::cout << "Time to process a range of " << vect.size() << " elements with std::vector : " << std::fixed << time_taken << std::setprecision(6) << " us" << std::endl;
@@ -113,7 +113,7 @@ int	main(int argc, char **argv)
 	p.fordJohnsonSortDeque(deque);
 	//std::cout << "Deque is sorted " << (is_sorted(deque) ? "true" : "false") << std::endl;
 	end = clock();
-	time_taken = double(end - start) / double(CLOCKS_PER_SEC); 
+	time_taken = double(end - start) / static_cast<double>(CLOCKS_PER_SEC); 
 	std::cout << "Time to process a range of " << vect.size() << " elements with std::list : " << std::fixed << time_taken << std::setprecision(6) << " us" << std::endl;
 	vect.clear();
 	deque.clear();
