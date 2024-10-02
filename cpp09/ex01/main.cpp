@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/19 20:32:04 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:58:12 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,17 @@ int	main(int argc, char **argv)
 		std::cout << "Error" << std::endl;
 		return (1);
 	}
-	std::string	expression = argv[1];
-	RPN rpn(expression);
-	std::cout << rpn.process() << std::endl;
+	try
+	{
+		std::string	expression = argv[1];
+		RPN rpn(expression);
+		std::cout << rpn.process() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << e.what() << '\n';
+	}
+	
+	
 	return (0);
 }

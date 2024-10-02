@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:30:06 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/19 20:31:06 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:42:08 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <iomanip>
 # include <cstdlib>
 # include <stack>
+# include <exception>
 
 class	RPN
 {
