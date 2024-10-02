@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:20:53 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/18 21:29:26 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/02 15:34:01 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@
 # include <cctype>
 # include <map>
 
+typedef std::map<std::string, float>			Map;
+typedef std::map<std::string, float>::iterator	Iterator; 
+
 class	BitcoinExchange
 {
 	private:
-		std::string						inputFile;
-		std::multimap<std::string, float>	database;
+		std::string							inputFile;
+		std::map<std::string, float>		database;
 		void	loadDatabase( void );
 
 	public:

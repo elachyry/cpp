@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:36:34 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/30 22:40:29 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/01 20:47:53 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 	//std::cout << "Deque is sorted " << (is_sorted(deque) ? "true" : "false") << std::endl;
 	end = clock();
 	time_taken = double(end - start) / static_cast<double>(CLOCKS_PER_SEC); 
-	std::cout << "Time to process a range of " << vect.size() << " elements with std::list : " << std::fixed << time_taken << std::setprecision(6) << " us" << std::endl;
+	std::cout << "Time to process a range of " << vect.size() << " elements with std::deque : " << std::fixed << time_taken << std::setprecision(6) << " us" << std::endl;
 	vect.clear();
 	deque.clear();
 	return (0);
