@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 16:20:44 by melachyr          #+#    #+#             */
-/*   Updated: 2024/10/02 17:38:21 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/03 21:22:40 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,24 @@ bool	isValidNumber(const std::string& str)
 			return false;
 	}
 	return (lastWasDigit && dotCount <= 1);
+}
+
+bool	checkIfNumeric(std::string str)
+{
+	if (str.empty())
+		return (false);
+	
+	std::string::iterator it = str.begin();
+	std::string::iterator ite = str.end();
+	
+	for (; it != ite; it++)
+	{
+		if (*it == '+' && it == str.begin())
+			continue ;
+		if (!std::isdigit(*it))
+			return (false);
+	}
+	return (true);
 }
 
 Map	split(const std::string& str, char delimiter)
@@ -160,21 +178,22 @@ bool	isValidDate(std::string date)
 	}
 	if (i < 2)
 		return (false);
-	//std::cout << tokens[2] << "  " << isValidNumber(tokens[2]) << std::endl;
-	if (!isValidNumber(tokens[0]) || !isValidNumber(tokens[1]) || !isValidNumber(tokens[2]))
+	if (!checkIfNumeric(tokens[0]) || !checkIfNumeric(tokens[1]) || !checkIfNumeric(tokens[2]))
 		return (false);
-	int	year = std::atoi(tokens[0].c_str());
-	int	month = std::atoi(tokens[1].c_str());
-	int	day = std::atoi(tokens[2].c_str());
-	if (year <= 0)
+	double	year = std::atof(tokens[0].c_str());
+	double	month = std::atof(tokens[1].c_str());
+	double	day = std::atof(tokens[2].c_str());
+	if (year <= 0 || year > 2025)
 		return (false);
 	if (month <= 0 || month > 12)
 		return (false);
 	if (day <= 0 || day > 31)	
 		return (false);
+	if ((month == 1 || month == 6 || month == 9 || month == 11) && day == 31)
+		return (false);
 	if (month == 2)
 	{
-		if (year % 4 == 0)
+		if (static_cast<int>(year) % 4 == 0)
 		{
 			if (day > 29)
 				return (false);
@@ -200,15 +219,18 @@ void	BitcoinExchange::display( void )
 	int i = 0;
 	do
 	{
+		line = trim(line);
 		if (i == 0)
 		{
-			if (trim(line) != "date | value")
+			if (line != "date | value")
 				throw std::runtime_error("Exception: Invalid file.");
 			i++;
 			continue ;
 		}
 		try
 		{
+			if (line.empty())
+				continue ;
 			Map	result = split(line, '|');
 			Iterator it = result.begin();
 			float value = it->second;

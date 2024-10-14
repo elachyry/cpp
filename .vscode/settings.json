@@ -7,6 +7,18 @@
 		"iomanip": "cpp",
 		"fstream": "cpp",
 		"diamondtrap": "cpp",
-		"new": "cpp"
+		"new": "cpp",
+		"cstdlib": "cpp",
+		"limits": "cpp",
+		"sstream": "cpp",
+		"cstdint": "cpp",
+		"ctime": "cpp",
+		"typeinfo": "cpp",
+		"*.tpp": "cpp",
+		"stdexcept": "cpp",
+		"algorithm": "cpp",
+		"list": "cpp",
+		"stack": "cpp",
+		"vector": "cpp"
 	}
 }

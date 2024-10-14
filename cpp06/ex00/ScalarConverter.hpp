@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/07 15:29:52 by melachyr          #+#    #+#             */
-/*   Updated: 2024/09/13 18:42:00 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/09/19 20:14:16 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define SCALARCONVERTER_HPP
 
 # include <iostream>
-# include <cstdlib> 
+# include <cstdlib>
 # include <sstream>
 # include <iomanip>
 # include <limits>

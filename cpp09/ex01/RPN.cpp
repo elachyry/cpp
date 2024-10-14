@@ -6,7 +6,7 @@
 /*   By: melachyr <melachyr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 18:30:00 by melachyr          #+#    #+#             */
-/*   Updated: 2024/10/02 17:16:02 by melachyr         ###   ########.fr       */
+/*   Updated: 2024/10/03 21:33:52 by melachyr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ std::string* split(const std::string& str, char delimiter, int& size)
 	
 	while (std::getline(tokenStream, token, delimiter))
 	{
-		// std::cout << "token " << token << std::endl;
 		if (!token.empty())
             count++;
-		
 	}
 
 	std::string* result = new std::string[count];
@@ -118,7 +116,6 @@ float	RPN::process( void )
 	}
 	for (int i = 0; i < size; i++)
 	{
-		// std::cout << splited[i] << std::endl;
 		if (isOperator(splited[i]))
 		{
 			if (expStack.size() < 2)
@@ -131,9 +128,8 @@ float	RPN::process( void )
 			float num2 = expStack.top();
 			expStack.pop();
 			expStack.push(getResult(num2, num1, splited[i].at(0)));
-			// std::cout << expStack.top() << std::endl;
 		}
-		else if (isNumber(splited[i]) && expStack.size() < 2)
+		else if (isNumber(splited[i]))
 		{
 			float	nbr = std::atof(splited[i].c_str());
 			if (nbr >= 10)
